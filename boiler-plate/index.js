@@ -4,6 +4,7 @@ const port = 3000
 const bodyParser = require('body-parser');
 const { User } = require("./models/User");
 const cookieParser = require('cookie-parser');
+const { auth } = require('./middleware/auth');
 const config = require('./config/key');
 
 //application/x-www-form-urlencoded -> 이렇게 된 데이터를 분석해서 가져올 수 있게함.
@@ -13,7 +14,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser)
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const { auth } = require('./middleware/auth');
 mongoose.connect(config.mongoURI, {
   useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB Connected...'))
@@ -61,9 +63,40 @@ app.post('/login', (req, res) => {
       //토큰을 저장한다. 어디에? 쿠키/로컬
 
     })
-
   })
 })
+
+
+app.get('/api/users/auth', auth, (req, res) => {
+
+  res.status(200).json({
+    _id: req.user._id,
+    isAdmin: req.user.role === 0 ? false : true,
+    isAuth: true,
+    email: req.user.email,
+    name: req.user.name,
+    lastname: req.user.lastname,
+    role: req.user.role,
+    image: req.user.image,
+  })
+
+})
+
+
+app.get('/api/users/auth', auth, (req, res) => {
+
+  User.findOneAndUpdate({ _id: req.user._id}, 
+    { token: ""},
+    (err, user) => {
+      if(err) return res.json({ success: false, err});
+      return res.status(200).send({
+        success: true
+      })
+    })
+
+
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
