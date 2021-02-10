@@ -15,7 +15,8 @@ app.use(bodyParser.json());
 app.use(cookieParser)
 
 const mongoose = require('mongoose');
-const { auth } = require('./middleware/auth');
+
+
 mongoose.connect(config.mongoURI, {
   useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB Connected...'))
