@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express()
-const port = 3000
+const port = 5000
 const bodyParser = require('body-parser');
 const { User } = require("./models/User");
 const cookieParser = require('cookie-parser');
@@ -8,11 +8,11 @@ const { auth } = require('./middleware/auth');
 const config = require('./config/key');
 
 //application/x-www-form-urlencoded -> 이렇게 된 데이터를 분석해서 가져올 수 있게함.
-app.use(bodyParser.urlencoded({extended: true}));
+app.use('boiler-plate', bodyParser.urlencoded({extended: true}));
 
 //application/json -> 이렇게 된 데이터를 분석해서 가져올 수 있음.
-app.use(bodyParser.json());
-app.use(cookieParser)
+app.use('boiler-plate', bodyParser.json());
+app.use('boiler-plate', cookieParser)
 
 const mongoose = require('mongoose');
 
@@ -25,6 +25,8 @@ mongoose.connect(config.mongoURI, {
 
 
 app.get('/', (req, res) => res.send('Hello World!'))
+
+app.get('/api/hello', (req, res) => res.send('hello word!'))
 
 app.post('/register', (req, res) => {
 
