@@ -28,9 +28,10 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get('/api/hello', (req, res) => res.send('hello word!'))
 
-app.post('/register', (req, res) => {
+app.post('/api/users/register', (req, res) => {
 
   const user = new User(req.body)
+  console.log('11', user, '33')
 
   user.save((err, userInfo) => {
     if(err) return res.json({ success: false, err})
@@ -42,7 +43,7 @@ app.post('/register', (req, res) => {
 
 
 
-app.post('/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
 
   //요청된 이메일을 찾아봄
   User.findOne({ email: req.body.email }, (err, user) => {
@@ -64,7 +65,9 @@ app.post('/login', (req, res) => {
       if(err) return res.status(400).send(err);
 
       //토큰을 저장한다. 어디에? 쿠키/로컬
-
+      res.cookie("x_auth", user.token)
+      .status(200)
+      .json({loginSuccess: true, userId: user._id})
     })
   })
 })
