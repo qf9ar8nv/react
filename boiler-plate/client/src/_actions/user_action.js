@@ -16,11 +16,12 @@ export function loginUser(dataTosubmit) {
 }
 
 export function registerUser(dataTosubmit) {
-    
+
     const request = axios.post('/api/users/register', dataTosubmit)
         .then(response => response.data)
-
-    console.log(request)
+        
+        console.log(dataTosubmit)
+        console.log(request)
     return {
         type: REGISTER_USER,
         payload: request

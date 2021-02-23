@@ -8,11 +8,11 @@ const { auth } = require('./middleware/auth');
 const config = require('./config/key');
 
 //application/x-www-form-urlencoded -> 이렇게 된 데이터를 분석해서 가져올 수 있게함.
-app.use('boiler-plate', bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 //application/json -> 이렇게 된 데이터를 분석해서 가져올 수 있음.
-app.use('boiler-plate', bodyParser.json());
-app.use('boiler-plate', cookieParser)
+app.use(bodyParser.json());
+app.use(cookieParser);
 
 const mongoose = require('mongoose');
 
@@ -30,8 +30,8 @@ app.get('/api/hello', (req, res) => res.send('hello word!'))
 
 app.post('/api/users/register', (req, res) => {
 
+  console.log(req.body)
   const user = new User(req.body)
-  console.log('11', user, '33')
 
   user.save((err, userInfo) => {
     if(err) return res.json({ success: false, err})
@@ -89,7 +89,7 @@ app.get('/api/users/auth', auth, (req, res) => {
 })
 
 
-app.get('/api/users/auth', auth, (req, res) => {
+app.get('/api/users/logout', auth, (req, res) => {
 
   User.findOneAndUpdate({ _id: req.user._id}, 
     { token: ""},
