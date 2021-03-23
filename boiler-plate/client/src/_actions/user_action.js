@@ -8,6 +8,8 @@ export function loginUser(dataToSubmit){
     const request = axios.post('/api/users/login', dataToSubmit)
     .then(response => response.data)
 
+    console.log(request)
+
     // reducer에 넘겨주는 작업.
     return {
         type: LOGIN_USER,
