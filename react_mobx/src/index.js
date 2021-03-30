@@ -4,13 +4,13 @@ import reportWebVitals from './reportWebVitals';
 
 import TodoListContainers from './containers/TodoListContainers';
 import { Provider } from 'mobx-react';
+import TodoListTemplate from './components/TodoListTemplate';
+import App from './App';
 
 import todoStore from './stores/TodoStore';
 
 ReactDOM.render(
-  <Provider todoStore={todoStore}>
-    <TodoListContainers />
-  </Provider>,
+  <App />,
   document.getElementById('root')
 );
 

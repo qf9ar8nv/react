@@ -14,4 +14,4 @@ class TodoStore{
 
 }
 
-export default TodoStore;
+export default new TodoStore();

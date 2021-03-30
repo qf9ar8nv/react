@@ -3,12 +3,11 @@ import React, { Component } from 'react'
 class TodoListView extends Component {
     render() {
 
-        const { todo } = this.props;
-        console.log(todo);
+        const {todo} = this.props;
 
         return (
             <div>
-                TodoListView!!
+                {todo.title}
             </div>
         )
     }
