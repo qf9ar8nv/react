@@ -1,19 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import TodoListContainers from './containers/TodoListContainer';
-import { Provider } from 'mobx-react';
-import TodoListTemplate from './components/TodoListTemplate';
-import App from './App';
-
-import todoStore from './stores/TodoStore';
-
 ReactDOM.render(
-  <Provider todoStore={todoStore}>
-    <TodoListContainers />
-  </Provider>
-  ,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

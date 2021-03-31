@@ -1,0 +1,154 @@
+.body{
+    background:rgba(0, 0, 0, 0.5);
+    overflow: auto i !important;
+    overflow-x: hidden !important;
+}
+
+.bg_wrap{
+    background: rgb(0,0,0,0.7);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    z-index: 19;
+}
+
+.re{
+    position: relative;
+}
+
+.search_header balck_bg{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+    display: none;
+}
+
+.clear{
+    clear: both;
+}
+
+.container{
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+    float: none;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    min-height: 408px;
+}
+
+.head{
+    width: 100%;
+    height: 180px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.navbar{
+    height: 100%;
+    letter-spacing: -1px;
+    min-width: 1200px;
+}
+
+.topmenu{
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+.headlogo{
+    position: absolute;
+    top: 61px;
+    left: 80px;
+}
+
+.header_hover{
+    position: absolute;
+    height: 40px;
+}
+
+.gnbwrap{
+    top: 0;
+    display: black;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50);
+    border: solid 0px #000;
+    z-index: 11;
+    width: 710px;
+}
+
+.gnb{
+    margin: 0;
+    padding: 0;
+}
+
+.gnbinner2{
+    margin: 0;
+    padding: 0;
+}
+
+.gnbinner{
+    position: relative;
+}
+
+.gnli{
+    display: inline-block;
+    height: 130px;
+    position: relative;
+}
+
+.gntext{
+    font-family: 'NotoSerif', 'NotoSans', sans-serif;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    color: #fff;
+    font-size: 18px;
+    z-index: 1;
+    padding: 60px 40px 0 40px;
+    height: 100%;
+    transition: color 0.3s ease-in-out;
+}
+
+.m_gnb_wrap{
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+.menu_wrap{
+    margin: 0;
+    padding: 0;
+}
+
+.headbutton{
+    font-size: 16px;
+    position: absolute;
+    top: 60px;
+    right: 100px;
+}
+
+.language_btn{
+    margin-left: 30px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.language_target{
+    display: inline-block;
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    width: 60px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px
+}
