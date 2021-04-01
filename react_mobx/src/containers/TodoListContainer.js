@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
-import TodoListView from '../views/TodoListView'
+import { observer } from 'mobx-react';
+import React from 'react';
+import TodoListView from '../views/TodoListView';
 
-import { inject, observer } from 'mobx-react';
-
-@inject('todoStore')
-@observer
-class TodoListContainer extends Component {
-    render() {
-        return (
-            <TodoListView />
-        );
-    }
-}
+const TodoListContainer = observer(() => {
+    return (
+        <div>
+            dd
+        </div>
+    );
+});
 
 export default TodoListContainer;

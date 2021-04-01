@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react';
+import '../css/main.css';
 
-class TodoListView extends Component {
-    render() {
+function TodoListView() {
 
-        const {todo} = this.props;
-
-        return (
-            <div>
-                {todo.title}
-            </div>
-        )
-    }
+    return (
+        <div>
+            
+        </div>
+    )
 }
 
 export default TodoListView;

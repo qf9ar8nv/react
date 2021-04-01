@@ -1,0 +1,13 @@
+.header{
+    display: flex;
+    font-size: 4rem;
+}
+
+.header_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 15vh;
+    background-color: rgb(202, 222, 223);
+}

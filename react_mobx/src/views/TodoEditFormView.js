@@ -1,9 +1,12 @@
 import React from 'react'
+import '../css/main.css'
 
-export default function TodoEditFormView() {
+function TodoEditFormView() {
     return (
         <div>
-            
+            할 일:
         </div>
     )
 }
+
+export default TodoEditFormView;
